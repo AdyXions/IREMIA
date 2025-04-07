@@ -27,7 +27,7 @@ export default function ReimbursementForm() {
   
     try {
       const res = await fetch(
-        "https://script.google.com/macros/s/AKfycbz12b1Oqq3zh4ghKQEWSOjRQ-A1UZpKcvJ9LnhE9uWbVGoKmG_9WvJcBXhZRW9xXb6z/exec",
+        "https://script.google.com/macros/s/AKfycbzJ6R-omum1WGSl0PNGKzrenwmLjgKH7LhGkJorJp3Z0zOW3nj-CVTOXlR0bkxiDrr7/exec",
         {
           method: "POST",
           mode:"no-cors",
