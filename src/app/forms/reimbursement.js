@@ -30,6 +30,7 @@ export default function ReimbursementForm() {
         "https://script.google.com/macros/s/AKfycbz12b1Oqq3zh4ghKQEWSOjRQ-A1UZpKcvJ9LnhE9uWbVGoKmG_9WvJcBXhZRW9xXb6z/exec",
         {
           method: "POST",
+          mode:"no-cors",
           body: JSON.stringify(parsedData),
           headers: {
             "Content-Type": "application/json",
@@ -37,8 +38,6 @@ export default function ReimbursementForm() {
         }
       );
   
-      const result = await res.json();
-      alert("Submitted successfully!");
       handleReset();
     } catch (err) {
       alert("Submission error:", err);

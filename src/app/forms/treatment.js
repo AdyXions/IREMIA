@@ -23,8 +23,8 @@ export default function TreatmentForm() {
     const parsedData = {
       sheetName: "Patient Logs",
       badgeNumber: Number(formData.badgeNumber),
-      treatmentType: formData.treatmentType,
       patientName: formData.patientName,
+      treatmentType: formData.treatmentType,
       totalBill: Number(formData.totalBill),
     };
   
@@ -33,15 +33,14 @@ export default function TreatmentForm() {
         "https://script.google.com/macros/s/AKfycbz12b1Oqq3zh4ghKQEWSOjRQ-A1UZpKcvJ9LnhE9uWbVGoKmG_9WvJcBXhZRW9xXb6z/exec",
         {
           method: "POST",
+          mode:"no-cors",
           body: JSON.stringify(parsedData),
           headers: {
             "Content-Type": "application/json",
           },
         }
       );
-  
-      const result = await res.json();
-      alert("Submitted successfully!");
+
       handleReset();
     } catch (err) {
       alert("Submission error:", err);
