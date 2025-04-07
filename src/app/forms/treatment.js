@@ -20,6 +20,7 @@ export default function TreatmentForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
   
+    const now = new Date();
     const parsedData = {
       sheetName: "Patient Logs",
       badgeNumber: Number(formData.badgeNumber),
@@ -27,25 +28,26 @@ export default function TreatmentForm() {
       treatmentType: formData.treatmentType,
       totalBill: Number(formData.totalBill),
     };
-  
+    
     try {
       const res = await fetch(
         "https://script.google.com/macros/s/AKfycbzJ6R-omum1WGSl0PNGKzrenwmLjgKH7LhGkJorJp3Z0zOW3nj-CVTOXlR0bkxiDrr7/exec",
         {
           method: "POST",
-          mode:"no-cors",
+          mode: "no-cors",
           body: JSON.stringify(parsedData),
           headers: {
             "Content-Type": "application/json",
           },
         }
       );
-
+  
       handleReset();
     } catch (err) {
       alert("Submission error:", err);
     }
   };
+  
 
   const handleReset = () => {
     setFormData({
